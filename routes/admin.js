@@ -16,7 +16,7 @@ router.post("/login", async (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
 
-  const user = await User.find({ username, password });
+  const user = await User.findOne({ username, password });
   if (user) {
     const token = jwt.sign(
       {
