@@ -5,9 +5,11 @@ const router = express.Router();
 
 router.post("/signup", async (req, res) => {
   const username = req.body.username;
+  const email = req.body.email;
+  const gender = req.body.gender;
   const password = req.body.password;
 
-  const userCreate = await User.create({ username, password });
+  const userCreate = await User.create({ username, email, gender, password });
   res.json({ userid: userCreate._id });
 });
 
